@@ -108,9 +108,9 @@ exec-to-string command, but it works and seems fast"
 (defun ruby-compilation-run (cmd)
   "Run a ruby process dumping output to a ruby compilation buffer."
   (interactive "FRuby Comand: ")
-  (let ((name (file-name-nondirectory (car (split-string cmd))))
-	(cmdlist (cons ruby-compilation-executable
-                       (split-string (expand-file-name cmd)))))
+  (let ((name (file-name-nondirectory (car (last (split-string cmd)))))
+  (cmdlist (cons ruby-compilation-executable
+                       (split-string cmd))))
     (pop-to-buffer (ruby-compilation-do name cmdlist))))
 
 ;;;###autoload

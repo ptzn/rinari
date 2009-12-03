@@ -200,7 +200,9 @@ argument allows editing of the test command arguments."
 	 (default-command (if fn
 			      (concat path " --name /" fn "/")
 			    path))
-	 (command (if edit-cmd-args
+   (default-command-args (concat " -C" (rinari-root) " -Itest "))
+   (default-command (concat default-command-args default-command))
+   (command (if edit-cmd-args
 		      (read-string "Run w/Compilation: " default-command)
 		    default-command)))
     (if path (ruby-compilation-run command)
